@@ -1,0 +1,63 @@
+### MoneyAware ###
+
+Requirements
+Application should have the following features:
+
+1 -  Users can create accounts.
+2 -  Users should be able to edit the account name and balance, and be able to delete the account. (If deleted all transactions related to the account will be deleted too).
+3 -  Users should be able to create and add transactions to the account, and the transactions should have: [id, description, amount, account, date, categories, type].
+4 -  Users should be able to view, edit and delete the transactions.
+5 -  Users should be able to view a summary of the transactions. (Graphs, total expenses, total incomes...)
+6 -  Users should be able to transfer balance from one account to another, this will create a new transaction in each account, in one it will be a expense with 
+     the category of transaction out, and in the another it will be a income with the category of transaction in, both categories will only be used in this case.
+     The transaction will have a ID.
+7 -  Users should be able to create categories and subcategories to select them when creating a transaction.
+8 -  Users should be able to filter transactions by category, income, expense, transfers, name, date, amount.
+9 -  Users should be able to view a summary for a specific month.
+10 - Users should be able to export expenses in a JSON or CSV file.
+11 - Transactions should be converted to the currency of the account.
+     It will use a external API to get the current value of conversion and accept a user input.
+
+
+
+
+Account structure
+account = {
+    id: integer,                        // ID único da conta
+    name: 'string',                     // Nome da conta
+    balance: float,                     // Saldo atual
+    allTimeExpenses: float,             // Total de despesas registradas
+    allTimeIncome: float,               // Total de receitas registradas
+    currency: "USD" || "BRL" || "EUR",  // Moeda da conta
+    createdAt: Date
+}
+
+
+transaction structure
+transaction = {
+    id: integer,                                 // Identificador único
+    accountId: integer,                          // Conta associada à transação
+    description: 'string',                       // Descrição da transação
+    amount: float,                               // Valor da transação
+    date: Date,                                  // Data da transação
+    categoryId: integer,                         // Categoria associada
+    subcategoryId: integer,                      // Subcategoria associada
+    type: "expense" || "income" || "transfer",   // Tipo de transação
+    transferId: integer || null                  // ID da transferência (se for uma transferência)
+    currency: "USD" || "BRL" || "EUR",           // Moeda utilizada
+    exchangeRate: float,                         // Taxa de conversão utilizada no momento da transação
+    convertedAmount: float,                      // Valor convertido para a moeda da conta
+}
+
+Category structure
+category = {
+    id: integer,
+    name: string,
+    subcategories: {
+        {id: integer, name: string},
+        {id: integer, name: string},
+        {id: integer, name: string}
+    }
+    color: rex,
+    icon: emoji
+}
