@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Aware - Test Place</title>
+</head>
+<body>
+    <h1>Money Aware - Test Place</h1>
+    
+    <form id="newAccountForm">
+        <input type="text" id="newAccountName" placeholder="Nome da Conta" required>
+        <input type="number" id="newAccountBalance" placeholder="Saldo Inicial" step="0.01" required>
+        <select id="newAccountCurrency">
+            <option value="BRL">BRL</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+        </select>
+        <button type="submit">Criar Conta</button>
+    </form>
+
+    <div id="accountsList"></div>
+
+    <button id="clearLocalStorage" onclick="clearLocalStorage()">Limpar LocalStorage</button>
+    
+    <script src="./assets/scripts/script.js"></script>
+</body>
+</html>
