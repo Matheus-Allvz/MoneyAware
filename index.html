@@ -3,25 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- LINKS -->
+    <link rel="stylesheet" href="./assets/styles/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
     <title>Money Aware - Test Place</title>
 </head>
 <body>
-    <h1>Money Aware - Test Place</h1>
-    
-    <form id="newAccountForm">
-        <input type="text" id="newAccountName" placeholder="Nome da Conta" required>
-        <input type="number" id="newAccountBalance" placeholder="Saldo Inicial" step="0.01" required>
-        <select id="newAccountCurrency">
-            <option value="BRL">BRL</option>
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-        </select>
-        <button type="submit">Criar Conta</button>
-    </form>
 
-    <div id="accountsList"></div>
+    <nav id="navbar">
+        <div id="nav-frame">
+            <img src="" alt="" id="nav-logo">
+            <ul>
+                <li class="nav-selected"><a href="#"><span class="material-symbols-outlined">home</span></a></li>
+                <li><a href="#"><span class="material-symbols-outlined">paid</span></a></li>
+                <li><a href="#"><span class="material-symbols-outlined">credit_card</span></a></li>
+                <li><a href="#"><span class="material-symbols-outlined">account_circle</span></a></li>
+            </ul>
+        </div>
+        
+        <div id="nav-fotter">
+            <hr>
+            <ul>
+                <li><a href="#"><span class="material-symbols-outlined">exit_to_app</span></a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <button id="clearLocalStorage" onclick="clearLocalStorage()">Limpar LocalStorage</button>
+
+    <section id="page">
+        <h2 id="page-title">Dashboard</h2>
+
+        <div id="page-content">
+
+            <button id="home-add-transaction">
+                <span class="material-symbols-outlined">attach_money</span>
+                ADD TRANSACTION
+              </button>
+            
+            <div id="home-cards">
+                
+                <div class="card">
+                    <div class="card-painted-section">
+                        <span class="material-symbols-outlined">credit_card</span>
+                        <span class="card-bank-name">Itaú</span>
+                    </div>
+                    <div class="card-elements">
+                        <h3 class="card-balance">1234,00 BRL</h3>
+                        <p class="card-transferences">23 transferências</p>
+                    </div>
+                </div>
+
+                <div id="add-new-card">
+                    <p>Add new card +</p>
+                </div>
+            </div>
+
+            <div id="home-incomes-expenses">
+                <div id="incomes">
+                    <span id="incomes-span">
+                        <i><span class="material-symbols-outlined">paid</span></i>
+                        <span>Entradas de</span>
+                        <p>00,00</p>
+                        <div class="incomes-range">
+                    </span>
+                </div>
+
+                <div id="expenses">
+                    <span id="expenses-span">
+                        <i><span class="material-symbols-outlined">paid</span></i>
+                        <span>Saídas de</span>
+                        <p>00,00</p>
+                        <div class="expenses-range">
+                    </span>
+                </div>
+            </div>
+
+            <div id="net-worth">
+                <span id="net-worth-span">
+                    <i><span class="material-symbols-outlined">paid</span></i>
+                    <span>Patrimônio Líquido</span>
+                    <p>00,00</p>
+                    <div class="net-worth-range">
+                </span>
+            </div>
+
+            <div id="balance-chart"></div>
+
+            <div id="category-expenses">
+                <h5 id="commum-title">Gastos por categoria</h5>
+                <div id="category-cards">
+                    <div id="category-card-1">
+                        <div id="category-minibox"><i>
+                            <span class="material-symbols-outlined">local_mall</span>
+                        </i></div>
+                        <p>Alimentação</p>
+                        <p>00,00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="expeses-box">
+
+                <div class="tab-container">
+                    <input type="radio" name="tab" id="tab1" class="tab tab--1" />
+                    <label class="tab_label" for="tab1">Todas</label>
+                  
+                    <input type="radio" name="tab" id="tab2" class="tab tab--2" />
+                    <label class="tab_label" for="tab2">Saídas</label>
+                  
+                    <input type="radio" name="tab" id="tab3" class="tab tab--3" />
+                    <label class="tab_label" for="tab3">Entradas</label>
+                  
+                    <div class="indicator"></div>
+                </div>
+
+                <div id="trasaction-tab">
+                    <span id="transaction-date">Segunda, 15 de março</span>
+                    <div class="transaction-transaction-tab">
+                        <div id="trasaction-id" class="saida">
+                            <div id="category-minibox"><i>
+                                <span class="material-symbols-outlined">local_mall</span>
+                            </i></div>
+                            <p>Alimentação</p>
+                            <p>00,00</p>
+                        </div>
+                    </div>
+                </div>                
+
+            </div>
+
+
+        </div>
+
+
+
+    </section>
+
     
     <script src="./assets/scripts/script.js"></script>
 </body>
