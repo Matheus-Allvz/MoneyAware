@@ -16,6 +16,7 @@
 </head>
 <body>
 
+
     <nav id="navbar">
         <div id="nav-frame">
             <img src="" alt="" id="nav-logo">
@@ -36,69 +37,112 @@
     </nav>
 
 
-    <section id="page">
+    <section id="page-content">
+
         <h2 id="page-title">Dashboard</h2>
 
-        <div id="page-content">
+        <button id="dash-add-transaction-button" aria-label="Adicionar nova transação">
+            <span class="material-symbols-outlined">attach_money</span>
+            ADD TRANSACTION
+        </button>
+        
 
-            <button id="home-add-transaction">
-                <span class="material-symbols-outlined">attach_money</span>
-                ADD TRANSACTION
-              </button>
+        <div id="dash-acconts-div">
             
-            <div id="home-cards">
-                
-                <div class="card">
-                    <div class="card-painted-section">
-                        <span class="material-symbols-outlined">credit_card</span>
-                        <span class="card-bank-name">Itaú</span>
-                    </div>
-                    <div class="card-elements">
-                        <h3 class="card-balance">1234,00 BRL</h3>
-                        <p class="card-transferences">23 transferências</p>
-                    </div>
+            <!-- EXAMPLE CARD -->
+            <div class="card">
+                <div class="card-painted-section">
+                    <span class="material-symbols-outlined">credit_card</span>
+                    <span class="card-bank-name">Itaú</span>
                 </div>
-
-                <div id="add-new-card">
-                    <p>Add new card +</p>
+                <div class="card-elements">
+                    <h3 class="card-balance">1234,00 BRL</h3>
+                    <p class="card-transferences">23 transferências</p>
                 </div>
             </div>
+            <!-- EXAMPLE CARD -->
 
-            <div id="home-incomes-expenses">
-                <div id="incomes">
-                    <span id="incomes-span">
-                        <i><span class="material-symbols-outlined">paid</span></i>
-                        <span>Entradas de</span>
-                        <p>00,00</p>
-                        <div class="incomes-range">
-                    </span>
-                </div>
 
-                <div id="expenses">
-                    <span id="expenses-span">
-                        <i><span class="material-symbols-outlined">paid</span></i>
-                        <span>Saídas de</span>
-                        <p>00,00</p>
-                        <div class="expenses-range">
-                    </span>
-                </div>
+            <div id="dash-add-new-card">
+                <p>Add new card +</p>
             </div>
 
-            <div id="net-worth">
-                <span id="net-worth-span">
+        </div>
+
+        <div id="dash-incomes-expenses-div">
+
+            <div id="incomes-div">
+                <span id="incomes-span">
                     <i><span class="material-symbols-outlined">paid</span></i>
-                    <span>Patrimônio Líquido</span>
-                    <p>00,00</p>
-                    <div class="net-worth-range">
+                    <span>Entradas de</span>
                 </span>
+                <p>00,00</p>
+                <div class="incomes-range">
             </div>
 
-            <div id="balance-chart"></div>
+            <div id="expenses-div">
+                <span id="expenses-span">
+                    <i><span class="material-symbols-outlined">paid</span></i>
+                    <span>Saídas de</span>
+                </span>
+                <p>00,00</p>
+                <div class="expenses-range">
+            </div>
 
-            <div id="category-expenses">
-                <h5 id="commum-title">Gastos por categoria</h5>
-                <div id="category-cards">
-                    <div id="category-card-1">
+        </div>
+
+        <div id="dash-net-worth-div">
+            <span id="net-worth-span">
+                <i><span class="material-symbols-outlined">paid</span></i>
+                <span>Patrimônio Líquido</span>
+            </span>
+            <p>00,00</p>
+            <div class="net-worth-range">
+        </div>
+
+        <div id="dash-graph-div"></div> 
+
+        <div id="dash-category-expenses-div">
+
+            <h5 id="category-expenses-title">Gastos por categoria</h5>
+
+            <ul id="category-frame-list">
+
+                <!-- EXAMPLE CARD -->
+                <div id="category-card-1">
+                    <div id="category-minibox">
+                        <i><span class="material-symbols-outlined">local_mall</span></i>
+                    </div>
+                    <p>Alimentação</p>
+                    <p>00,00</p>
+                </div>
+                <!-- EXAMPLE CARD -->
+
+            </ul>
+
+        </div>
+
+        <div id="dash-transactions-div">
+
+            <div class="tab-container">
+                <input type="radio" name="tab" id="tab1" class="tab tab--1" />
+                <label class="tab_label" for="tab1">Todas</label>
+                
+                <input type="radio" name="tab" id="tab2" class="tab tab--2" />
+                <label class="tab_label" for="tab2">Saídas</label>
+                
+                <input type="radio" name="tab" id="tab3" class="tab tab--3" />
+                <label class="tab_label" for="tab3">Entradas</label>
+                
+                <div class="indicator"></div>
+            </div>
+
+            <section id="trasaction-tab">
+
+                <!-- EXAMPLE CARD -->
+                <span id="transaction-date">Segunda, 15 de março</span>
+                <div class="transaction">
+                    <div id="trasaction-id" class="saida">
                         <div id="category-minibox"><i>
                             <span class="material-symbols-outlined">local_mall</span>
                         </i></div>
@@ -106,42 +150,11 @@
                         <p>00,00</p>
                     </div>
                 </div>
-            </div>
+                <!-- EXAMPLE CARD -->
 
-            <div id="expeses-box">
-
-                <div class="tab-container">
-                    <input type="radio" name="tab" id="tab1" class="tab tab--1" />
-                    <label class="tab_label" for="tab1">Todas</label>
-                  
-                    <input type="radio" name="tab" id="tab2" class="tab tab--2" />
-                    <label class="tab_label" for="tab2">Saídas</label>
-                  
-                    <input type="radio" name="tab" id="tab3" class="tab tab--3" />
-                    <label class="tab_label" for="tab3">Entradas</label>
-                  
-                    <div class="indicator"></div>
-                </div>
-
-                <div id="trasaction-tab">
-                    <span id="transaction-date">Segunda, 15 de março</span>
-                    <div class="transaction-transaction-tab">
-                        <div id="trasaction-id" class="saida">
-                            <div id="category-minibox"><i>
-                                <span class="material-symbols-outlined">local_mall</span>
-                            </i></div>
-                            <p>Alimentação</p>
-                            <p>00,00</p>
-                        </div>
-                    </div>
-                </div>                
-
-            </div>
-
+            </section>                
 
         </div>
-
-
 
     </section>
 
