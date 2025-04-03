@@ -59,7 +59,7 @@
                     </button>
                 </div>
                 <div class="card-elements">
-                    <h3 class="card-balance">1234,00 BRL</h3>
+                    <h3 class="card-balance">1.234,00 BRL</h3>
                     <p class="card-transferences">23 transferências</p>
                 </div>
             </div>
@@ -72,96 +72,106 @@
 
         </div>
 
-        <div id="dash-incomes-expenses-div">
-
-            <div id="incomes-div">
-                <span id="incomes-span">
-                    <i><span class="material-symbols-outlined">paid</span></i>
-                    <span>Entradas de</span>
-                </span>
-                <p>00,00</p>
-                <div class="incomes-range">
-            </div>
-
-            <div id="expenses-div">
-                <span id="expenses-span">
-                    <i><span class="material-symbols-outlined">paid</span></i>
-                    <span>Saídas de</span>
-                </span>
-                <p>00,00</p>
-                <div class="expenses-range">
-            </div>
-
-        </div>
-
-        <div id="dash-net-worth-div">
-            <span id="net-worth-span">
-                <i><span class="material-symbols-outlined">paid</span></i>
-                <span>Patrimônio Líquido</span>
-            </span>
-            <p>00,00</p>
-            <div class="net-worth-range">
-        </div>
-
-        <div id="dash-graph-div"></div> 
-
-        <div id="dash-category-expenses-div">
-
-            <h5 id="category-expenses-title">Gastos por categoria</h5>
-
-            <ul id="category-frame-list">
-
-                <!-- EXAMPLE CARD -->
-                <div id="category-card-1">
-                    <div id="category-minibox">
-                        <i><span class="material-symbols-outlined">local_mall</span></i>
+        <div id="dash-main-container">
+            
+            <div id="dash-left-container" class="grid">
+                <div id="dash-incomes-expenses-div">
+                
+                    <div id="dash-incomes-div" class="balance-div">
+                        <span id="incomes-span">
+                            <i class="incomes"><span class="material-symbols-outlined">paid</span></i>
+                            <label>Entradas de Março</label>
+                            <i class="incomes"><span class="material-symbols-outlined">arrow_drop_up</span></i>
+                        </span>
+                        <p class="incomes-data">0,00</p>
+                        <hr class="incomes-range">
                     </div>
-                    <p>Alimentação</p>
-                    <p>00,00</p>
+                
+                    <div id="dash-expenses-div" class="balance-div">
+                        <span id="expenses-span">
+                            <i class="expenses"><span class="material-symbols-outlined">paid</span></i>
+                            <label>Saídas de Março</label>
+                            <i class="expenses"><span class="material-symbols-outlined">arrow_drop_up</span></i>
+                        </span>
+                        <p class="expenses-data">0,00</p>
+                        <hr class="expenses-range">
+                    </div>
+                    
                 </div>
-                <!-- EXAMPLE CARD -->
 
-            </ul>
-
-        </div>
-
-        <div id="dash-transactions-div">
-
-            <div class="tab-container">
-                <input type="radio" name="tab" id="tab1" class="tab tab--1" />
-                <label class="tab_label" for="tab1">Todas</label>
+                <div id="dash-net-worth-div" class="balance-div">
+                    <span id="net-worth-span">
+                        <i class="net-worth"><span class="material-symbols-outlined">paid</span></i>
+                        <label>Patrimônio Líquido</label>
+                    </span>
+                    <p class="net-worth-data">0,00</p>
+                    <hr class="net-worth-range">
+                </div>
                 
-                <input type="radio" name="tab" id="tab2" class="tab tab--2" />
-                <label class="tab_label" for="tab2">Saídas</label>
                 
-                <input type="radio" name="tab" id="tab3" class="tab tab--3" />
-                <label class="tab_label" for="tab3">Entradas</label>
-                
-                <div class="indicator"></div>
+                <div id="dash-graph-div"></div> 
             </div>
 
-            <section id="trasaction-tab">
-
-                <!-- EXAMPLE CARD -->
-                <span id="transaction-date">Segunda, 15 de março</span>
-                <div class="transaction">
-                    <div id="trasaction-id" class="saida">
-                        <div id="category-minibox"><i>
-                            <span class="material-symbols-outlined">local_mall</span>
-                        </i></div>
+                    
+            <div id="dash-category-expenses-div" class="grid">
+                
+                <h5 id="category-expenses-title">Gastos por categoria</h5>
+                
+                <ul id="category-frame-list">
+                    
+                    <!-- EXAMPLE CARD -->
+                    <div id="category-card-1">
+                        <div id="category-minibox">
+                            <i><span class="material-symbols-outlined">local_mall</span></i>
+                        </div>
                         <p>Alimentação</p>
                         <p>00,00</p>
                     </div>
+                    <!-- EXAMPLE CARD -->
+                    
+                </ul>
+                
+            </div>    
+            
+            
+            <div id="dash-transactions-div" class="grid">
+                
+                <div class="tab-container">
+                    <input type="radio" name="tab" id="tab1" class="tab tab--1" />
+                    <label class="tab_label" for="tab1">Todas</label>
+                    
+                    <input type="radio" name="tab" id="tab2" class="tab tab--2" />
+                    <label class="tab_label" for="tab2">Saídas</label>
+                    
+                    <input type="radio" name="tab" id="tab3" class="tab tab--3" />
+                    <label class="tab_label" for="tab3">Entradas</label>
+                    
+                    <div class="indicator"></div>
                 </div>
-                <!-- EXAMPLE CARD -->
-
-            </section>                
-
+                
+                <section id="trasaction-tab">
+                    
+                    <!-- EXAMPLE CARD -->
+                    <span id="transaction-date">Segunda, 15 de março</span>
+                    <div class="transaction">
+                        <div id="trasaction-id" class="saida">
+                            <div id="category-minibox"><i>
+                                <span class="material-symbols-outlined">local_mall</span>
+                            </i></div>
+                            <p>Alimentação</p>
+                            <p>00,00</p>
+                        </div>
+                    </div>
+                    <!-- EXAMPLE CARD -->
+                    
+                </section>             
+                
+            </div>
+            
         </div>
-
     </section>
-
-    
+        
+        
     <script src="./assets/scripts/script.js"></script>
 </body>
 </html>
