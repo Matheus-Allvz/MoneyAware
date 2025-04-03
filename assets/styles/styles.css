@@ -1,7 +1,11 @@
 :root {
   --primary-text-color: #1F2B3A;
 
+
+  --white-element-background: #F6F6FD;
   --green: #02972F;
+  --red: #F44336;
+  --blue: #0560af;
 
   --title-font: "Inter", sans-serif;
   --roboto-font: "Roboto", sans-serif;
@@ -20,11 +24,12 @@ body {
   display: flex;
   flex-direction: row;
 
-  background-image:url(/assets/images/background.png) !important;
+  background-image:url(/assets/images/background.png) ;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
+
 
 /* Navbar Style */
 
@@ -43,7 +48,7 @@ body {
   padding: 24px 0;
   margin: 1% 16px 1% 32px;
   
-  background-color: #F6F6FD;
+  background-color: var(--white-element-background);
   
   border-radius: 18px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -111,6 +116,7 @@ body {
   width: 100%;
   height: 100%;
   margin-top: 48px;
+  margin-right: 24px;
 }
 
 #page-title {
@@ -122,22 +128,29 @@ body {
 }
 
 #dash-add-transaction-button {
-  max-width: fit-content;
-  border: none;
   display: flex;
+  max-width: fit-content;
+  
+  margin-bottom: 32px;
+  
   padding: 0.75rem 1.5rem 0.75rem 1rem;
+
+  border: none;
+  border-radius: 0.5rem;
   background-color: var(--green);
+  
   color: #ffffff;
   font-size: 0.75rem;
   line-height: 1rem;
   font-weight: 700;
   text-align: center;
-  cursor: pointer;
   text-transform: uppercase;
+  
+  cursor: pointer;
+  user-select: none;
   vertical-align: middle;
   align-items: center;
-  border-radius: 0.5rem;
-  user-select: none;
+  
   gap: 0.75rem;
   box-shadow:
     0 4px 6px -1px #488aec31,
@@ -161,25 +174,27 @@ body {
   font-size: 1.4rem;
 }
 
+
+/* Dashboard Accounts */
 #dash-acconts-div {
   display: flex;
   width: 100%;
   flex-wrap: nowrap;
   height: auto;
   align-items: center;
-  margin: 20px auto 28px 0;
+  margin: 0 0 14px 0;
   gap:14px;
 
   max-width: 90vw;
-  height: 200px; /* Defina um tamanho fixo adequado */
-  overflow-x: auto; /* Scroll horizontal quando necessário */
+  height: auto;
+  overflow-x: auto;
   white-space: nowrap;
   scrollbar-width: thin;
   scrollbar-color: #bbb transparent;
 }
 
 #cards-container::-webkit-scrollbar {
-  height: 8px; /* Altura do scrollbar */
+  height: 8px;
 }
 
 #cards-container::-webkit-scrollbar-thumb {
@@ -224,7 +239,7 @@ body {
 
 
 
- /* Card Style */
+/* Card Style */
  
 .card {
   position: relative;
@@ -305,6 +320,141 @@ body {
 
 
 
+/* BOTTOM ITENS */
+
+#dash-main-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 12px;
+}
+
+#dash-left-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-width: 390px;
+}
+
+.grid {
+  flex: 1 1 30%;
+}
+
+#dash-incomes-expenses-div{
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin: 0;
+}
+
+.balance-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  width: fit-content;
+  width: 100%;
+  padding: 12px;
+  
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.balance-div > span {
+  font-family: 'Afacad', sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  width: max-content;
+
+}
+
+.balance-div > span label {
+  padding: auto;
+  font-size: 18px;
+  white-space: nowrap;
+  margin: 0 8px;
+}
+
+.balance-div > p {
+  font-family: 'inter', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 8px 0 12px 4px;
+}
+
+.balance-div .net-worth {
+  color: var(--blue);
+}
+
+.balance-div .incomes {
+  color:var(--green);
+}
+
+.balance-div .expenses {
+  color: var(--red);
+}
+
+.incomes-range {
+  background-color: var(--green);
+}
+
+.expenses-range {
+  background-color: var(--red);
+}
+
+.net-worth-range {
+  background-color: var(--blue);
+}
+
+.balance-div hr {
+  height: 8px;
+  border-radius: 8px;
+  width: 100%;
+}
+
+
+
+#dash-graph-div{
+  background-image: url(/assets/images/placeholder.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 200px;
+
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden; 
+}
+
+
+
+
+#dash-category-expenses-div {
+  min-width: 400px;
+  background-color: white;
+  width: calc(100% - 440px - 820px);
+
+
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden; 
+}
+
+#dash-transactions-div {
+  width: auto;
+  min-width: 412px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden; 
+  background: white;
+}
+
+
+
 
 
 
@@ -339,7 +489,7 @@ body {
 
 .indicator {
   content: "";
-  width: 130px;
+  width: 33%;
   height: 28px;
   background: #ffffff;
   position: absolute;
@@ -353,7 +503,7 @@ body {
 }
 
 .tab {
-  width: 130px;
+  width: 33%;
   height: 28px;
   position: absolute;
   z-index: 99;
@@ -362,7 +512,7 @@ body {
 }
 
 .tab_label {
-  width: 130px;
+  width: 33%  ;
   height: 28px;
 
   position: relative;
@@ -385,9 +535,9 @@ body {
 }
 
 .tab--2:checked ~ .indicator {
-  left: calc(130px + 2px);
+  left: calc(33% + 2px);
 }
 
 .tab--3:checked ~ .indicator {
-  left: calc(130px * 2 + 2px);
+  left: calc(33% * 2 + 2px);
 }
