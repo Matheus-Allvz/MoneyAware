@@ -1,7 +1,6 @@
 :root {
   --primary-text-color: #1F2B3A;
 
-
   --white-element-background: #F6F6FD;
   --green: #02972F;
   --red: #F44336;
@@ -24,7 +23,7 @@ body {
   display: flex;
   flex-direction: row;
 
-  background-image:url(/assets/images/background.png) ;
+  background-image:url('background.png') ;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -418,7 +417,7 @@ body {
 
 
 #dash-graph-div{
-  background-image: url(/assets/images/placeholder.png);
+  background-image: url('placeholder.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
