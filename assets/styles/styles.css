@@ -1,13 +1,16 @@
 :root {
   --primary-text-color: #1F2B3A;
 
-  --white-element-background: #F6F6FD;
+  --grey: #F6F6FD;
   --green: #02972F;
   --red: #F44336;
   --blue: #0560af;
+  --coffee: #333;
+  --white: #FAFAFA;
 
-  --title-font: "Inter", sans-serif;
+  --inter-font: "Inter", sans-serif;
   --roboto-font: "Roboto", sans-serif;
+  --afacad-font: "Afacad", sans-serif;
   
 }
 
@@ -47,7 +50,7 @@ body {
   padding: 24px 0;
   margin: 1% 16px 1% 32px;
   
-  background-color: var(--white-element-background);
+  background-color: var(--grey);
   
   border-radius: 18px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -62,7 +65,7 @@ body {
 #nav-frame img  {
   width: 34px;
   height: 34px;
-  background-color: #333;
+  background-color: var(--coffee);
   margin-bottom: 32px;
 }
 
@@ -121,7 +124,7 @@ body {
 #page-title {
   margin-bottom: 36px;
   color: var(--primary-text-color);
-  font-family: var(--title-font);
+  font-family: var(--inter-font);
   font-weight: 600;
   text-align: left;
 }
@@ -138,7 +141,7 @@ body {
   border-radius: 0.5rem;
   background-color: var(--green);
   
-  color: #ffffff;
+  color: white;
   font-size: 0.75rem;
   line-height: 1rem;
   font-weight: 700;
@@ -219,7 +222,7 @@ body {
 }
 
 #dash-add-new-card p {
-  color: rgb(91, 91, 91);
+  color: var(--coffee);
   font-family: var(--roboto-font);
   font-weight: 400;
   transition: color 0.3s ease-in-out;
@@ -233,7 +236,7 @@ body {
 }
 
 #dash-add-new-card:hover p {
-  color: black;
+  color: var(--coffee);
 }
 
 
@@ -308,13 +311,13 @@ body {
 .card-balance {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  color: #333;
+  color: var(--coffee);
 }
 
 .card-transferences {
   font-family: 'Inter', sans-serif;
   font-size: 12px;
-  color: #333333af;
+  color: var(--coffee) transparent;
 }
 
 
@@ -333,7 +336,6 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   gap: 12px;
-  min-width: 390px;
 }
 
 .grid {
@@ -351,18 +353,18 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
+  background-color: var(--white);
   width: fit-content;
   width: 100%;
   padding: 12px;
   
-  background-color: white;
   border-radius: 12px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .balance-div > span {
-  font-family: 'Afacad', sans-serif;
+  font-family: var(--afacad-font);
   display: flex;
   flex-direction: row;
   justify-content: start;
@@ -378,7 +380,7 @@ body {
 }
 
 .balance-div > p {
-  font-family: 'inter', sans-serif;
+  font-family: var(--inter-font);
   font-size: 24px;
   font-weight: bold;
   margin: 8px 0 12px 4px;
@@ -430,18 +432,77 @@ body {
 }
 
 
+.category-expenses-div {
+  flex-grow: 1;
+  min-width: 480px;
+  background-color: var(--white);
 
-
-#dash-category-expenses-div {
-  min-width: 400px;
-  background-color: white;
-  width: calc(100% - 440px - 820px);
-
+  padding: 12px 12px 12px 14px;
 
   border-radius: 12px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden; 
 }
+
+.category-expenses-div > h5 {
+  font-family: var(--afacad-font);
+  font-size: 20px;
+  font-weight: 400;
+  margin: 0 0 12px 0;
+}
+
+.category-frame-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 348px;
+
+  scrollbar-width: thin;
+  scrollbar-color: #bbb transparent;
+}
+
+.category-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.category-minibox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--inter-font);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--black);
+  margin: 0 0 0 4px;
+}
+
+.expense-type {
+  font-family: var(--inter-font);
+  font-size: 16px;
+  margin: 0 12px 0 0;
+}
+
+.category-minibox i {
+  background-color: rgba(128, 128, 128, 0.397);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.expense-value {
+  font-family: var(--inter-font);
+  color: var(--red);
+  font-weight: bold;
+  font-size: 16px;
+  margin-right: 12px;
+}
+
+
+
 
 #dash-transactions-div {
   width: auto;
@@ -449,7 +510,7 @@ body {
   border-radius: 12px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden; 
-  background: white;
+  background-color: var(--white);
 }
 
 
@@ -538,5 +599,5 @@ body {
 }
 
 .tab--3:checked ~ .indicator {
-  left: calc(33% * 2 + 2px);
+  left: calc(33% * 2 + 5px);
 }
