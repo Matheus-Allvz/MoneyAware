@@ -1,284 +1,292 @@
-<!DOCTYPE html>
-<html lang="en">
+
+<!DOCTYPE html> 
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <title>Money Aware - Finanças Pessoais</title>
+
     <!-- LINKS -->
-    <link rel="stylesheet" href="./assets/styles/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
-    <base href="https://matheus-allvz.github.io/MoneyAware/">
-
-    <title>Money Aware - Test Place</title>
+    <link rel="stylesheet" href="./assets/styles/style.css">
 </head>
 <body>
-
-
-    <nav id="navbar">
-        <div id="nav-frame">
-            <img src="" alt="" id="nav-logo">
-            <ul>
-                <li class="nav-selected"><a href="#"><span class="material-symbols-outlined">home</span></a></li>
-                <li><a href="#"><span class="material-symbols-outlined">paid</span></a></li>
-                <li><a href="#"><span class="material-symbols-outlined">credit_card</span></a></li>
-                <li><a href="#"><span class="material-symbols-outlined">account_circle</span></a></li>
-            </ul>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-brand">Finanças</div>
+        <div class="nav-item active">
+            <i>🏠</i>
+            <span>Home</span>
         </div>
-        
-        <div id="nav-fotter">
-            <hr>
-            <ul>
-                <li><a href="#"><span class="material-symbols-outlined">exit_to_app</span></a></li>
-            </ul>
+        <div class="nav-item">
+            <i>💸</i>
+            <span>Transações</span>
+        </div>
+        <div class="nav-item">
+            <i>🏦</i>
+            <span>Contas</span>
+        </div>
+        <div class="nav-item">
+            <i>👤</i>
+            <span>Perfil</span>
+        </div>
+        <div class="nav-footer">
+            <div class="nav-item logout">
+                <i>🚪</i>
+                <span>Sair</span>
+            </div>
         </div>
     </nav>
 
-
-    <section id="page-content">
-
-        <h2 id="page-title">Dashboard</h2>
-
-        <button id="dash-add-transaction-button" aria-label="Adicionar nova transação">
-            <span class="material-symbols-outlined">attach_money</span>
-            ADD TRANSACTION
-        </button>
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1 class="page-title">Visão Geral</h1>
         
-
-        <div id="dash-acconts-div">
-            
-            <!-- EXAMPLE CARD -->
-            <div class="card">
-                <div class="card-painted-section">
-                    <span class="material-symbols-outlined">credit_card</span>
-                    <span class="card-name">Itaú</span>
-                    <button class="menu-button">
-                        <span class="material-symbols-outlined">more_vert</span>
-                    </button>
+        <!-- Accounts Cards -->
+        <div class="card">
+            <div class="card-title">
+                <span>Minhas Contas</span>
+                <button class="btn btn-primary" id="addTransactionBtn">+ Adicionar Transação</button>
+            </div>
+            <div class="accounts-container">
+                <div class="account-card">
+                    <div class="account-card-name">Banco Principal</div>
+                    <div class="account-card-balance">R$ 12.450,00</div>
+                    <div class="account-card-transactions">15 transações</div>
                 </div>
-                <div class="card-elements">
-                    <h3 class="card-balance">1.234,00 BRL</h3>
-                    <p class="card-transferences">23 transferências</p>
+                <div class="account-card">
+                    <div class="account-card-name">Cartão de Crédito</div>
+                    <div class="account-card-balance">-R$ 1.245,00</div>
+                    <div class="account-card-transactions">8 transações</div>
+                </div>
+                <div class="account-card">
+                    <div class="account-card-name">Investimentos</div>
+                    <div class="account-card-balance">R$ 25.000,00</div>
+                    <div class="account-card-transactions">3 transações</div>
+                </div>
+                <div class="add-account-card">
+                    + Adicionar Conta
                 </div>
             </div>
-            <!-- EXAMPLE CARD -->
-
-
-            <div id="dash-add-new-card">
-                <p>Add new card +</p>
-            </div>
-
         </div>
-
-        <div id="dash-main-container">
-            
-            <div id="dash-left-container" class="grid">
-                <div id="dash-incomes-expenses-div">
-                
-                    <div id="dash-incomes-div" class="balance-div">
-                        <span id="incomes-span">
-                            <i class="incomes"><span class="material-symbols-outlined">paid</span></i>
-                            <label>Entradas de Março</label>
-                            <i class="incomes"><span class="material-symbols-outlined">arrow_drop_up</span></i>
-                        </span>
-                        <p class="incomes-data">0,00</p>
-                        <hr class="incomes-range">
-                    </div>
-                
-                    <div id="dash-expenses-div" class="balance-div">
-                        <span id="expenses-span">
-                            <i class="expenses"><span class="material-symbols-outlined">paid</span></i>
-                            <label>Saídas de Março</label>
-                            <i class="expenses"><span class="material-symbols-outlined">arrow_drop_down</span></i>
-                        </span>
-                        <p class="expenses-data">0,00</p>
-                        <hr class="expenses-range">
-                    </div>
-                    
-                </div>
-
-                <div id="dash-net-worth-div" class="balance-div">
-                    <span id="net-worth-span">
-                        <i class="net-worth"><span class="material-symbols-outlined">paid</span></i>
-                        <label>Patrimônio Líquido</label>
-                    </span>
-                    <p class="net-worth-data">0,00</p>
-                    <hr class="net-worth-range">
-                </div>
-                
-                
-                <div id="dash-graph-div"></div> 
+        
+        <!-- Summary Cards -->
+        <div class="summary-container">
+            <div class="summary-card income">
+                <div class="summary-card-title">Entradas</div>
+                <div class="summary-card-value">R$ 5.200,00</div>
+                <div class="summary-card-period">Maio 2023</div>
             </div>
-
-                    
-            <div class="category-expenses-div" class="grid">
-                
-                <h5>Gastos por categoria</h5>
-                
-                <ul class="category-frame-list">
-                    
-                    <!-- EXAMPLE CARD -->
-                    <div class="category-card expense">
-                        <div class="category-minibox">
-                            <i><span class="material-symbols-outlined">storefront</span></i>
-                            <p class="expense-type">Alimentação</p>
-                        </div>
-                        <p class="expense-value">83,99R$</p>
-                    </div>
-                    <!-- EXAMPLE CARD -->
-                     <!-- EXAMPLE CARD 1 -->
-                    <div class="category-card expense">
-                        <div class="category-minibox">
-                            <i><span class="material-symbols-outlined">shopping_bag</span></i>
-                            <p class="expense-type">Compras</p>
-                        </div>
-                        <p class="expense-value">129,50R$</p>
-                    </div>
-
-                    <!-- EXAMPLE CARD 2 -->
-                    <div class="category-card expense">
-                        <div class="category-minibox">
-                            <i><span class="material-symbols-outlined">local_gas_station</span></i>
-                            <p class="expense-type">Combustível</p>
-                        </div>
-                        <p class="expense-value">65,30R$</p>
-                    </div>
-
-                    <!-- EXAMPLE CARD 3 -->
-                    <div class="category-card expense">
-                        <div class="category-minibox">
-                            <i><span class="material-symbols-outlined">healing</span></i>
-                            <p class="expense-type">Saúde</p>
-                        </div>
-                        <p class="expense-value">95,00R$</p>
-                    </div>
-                    <!-- EXAMPLE CARD 4 -->
-                    <div class="category-card expense">
-                        <div class="category-minibox">
-                            <i><span class="material-symbols-outlined">home</span></i>
-                            <p class="expense-type">Moradia</p>
-                        </div>
-                        <p class="expense-value">450,00R$</p>
-                    </div>
-
-                    <!-- EXAMPLE CARD 5 -->
-                    <div class="category-card expense">
-                        <div class="category-minibox">
-                            <i><span class="material-symbols-outlined">fitness_center</span></i>
-                            <p class="expense-type">Academia</p>
-                        </div>
-                        <p class="expense-value">120,00R$</p>
-                    </div>
-
-                    <!-- EXAMPLE CARD 6 -->
-                    <div class="category-card expense">
-                        <div class="category-minibox">
-                            <i><span class="material-symbols-outlined">school</span></i>
-                            <p class="expense-type">Educação</p>
-                        </div>
-                        <p class="expense-value">200,00R$</p>
-                    </div>
-
-                    <!-- EXAMPLE CARD 7 -->
-                    <div class="category-card expense">
-                        <div class="category-minibox">
-                            <i><span class="material-symbols-outlined">directions_car</span></i>
-                            <p class="expense-type">Transporte</p>
-                        </div>
-                        <p class="expense-value">75,00R$</p>
-                    </div>
-
-                    <!-- EXAMPLE CARD 8 -->
-                    <div class="category-card expense">
-                        <div class="category-minibox">
-                            <i><span class="material-symbols-outlined">videogame_asset</span></i>
-                            <p class="expense-type">Lazer</p>
-                        </div>
-                        <p class="expense-value">150,00R$</p>
-                    </div>
-
-                    <!-- EXAMPLE CARD 9 -->
-                    <div class="category-card expense">
-                        <div class="category-minibox">
-                            <i><span class="material-symbols-outlined">pets</span></i>
-                            <p class="expense-type">Pets</p>
-                        </div>
-                        <p class="expense-value">85,00R$</p>
-                    </div>
-
-                    <!-- EXAMPLE CARD 10 -->
-                    <div class="category-card expense">
-                        <div class="category-minibox">
-                            <i><span class="material-symbols-outlined">spa</span></i>
-                            <p class="expense-type">Auto-cuidado</p>
-                        </div>
-                        <p class="expense-value">60,00R$</p>
-                    </div>
-
-                    <!-- EXAMPLE CARD 11 -->
-                    <div class="category-card expense">
-                        <div class="category-minibox">
-                            <i><span class="material-symbols-outlined">event</span></i>
-                            <p class="expense-type">Eventos</p>
-                        </div>
-                        <p class="expense-value">300,00R$</p>
-                    </div>
-
-                    <!-- EXAMPLE CARD 12 -->
-                    <div class="category-card expense">
-                        <div class="category-minibox">
-                            <i><span class="material-symbols-outlined">medical_services</span></i>
-                            <p class="expense-type">Medicamentos</p>
-                        </div>
-                        <p class="expense-value">40,00R$</p>
-                    </div>
-                    
-                </ul>
-                
-            </div>    
-            
-            
-            <div id="dash-transactions-div" class="grid">
-                
-                <div class="tab-container">
-                    <input type="radio" name="tab" id="tab1" class="tab tab--1" />
-                    <label class="tab_label" for="tab1">Todas</label>
-                    
-                    <input type="radio" name="tab" id="tab2" class="tab tab--2" />
-                    <label class="tab_label" for="tab2">Saídas</label>
-                    
-                    <input type="radio" name="tab" id="tab3" class="tab tab--3" />
-                    <label class="tab_label" for="tab3">Entradas</label>
-                    
-                    <div class="indicator"></div>
-                </div>
-                
-                <section id="trasaction-tab">
-                    
-                    <!-- EXAMPLE CARD -->
-                    <span id="transaction-date">Segunda, 15 de março</span>
-                    <div class="transaction">
-                        <div id="trasaction-id" class="saida">
-                            <div id="category-minibox"><i>
-                                <span class="material-symbols-outlined">local_mall</span>
-                            </i></div>
-                            <p>Alimentação</p>
-                            <p>00,00</p>
-                        </div>
-                    </div>
-                    <!-- EXAMPLE CARD -->
-                    
-                </section>             
-                
+            <div class="summary-card expense">
+                <div class="summary-card-title">Saídas</div>
+                <div class="summary-card-value">R$ 3.450,00</div>
+                <div class="summary-card-period">Maio 2023</div>
             </div>
-            
+            <div class="summary-card balance">
+                <div class="summary-card-title">Patrimônio Líquido</div>
+                <div class="summary-card-value">R$ 36.205,00</div>
+                <div class="summary-card-period">Atualizado agora</div>
+            </div>
         </div>
-    </section>
         
+        <!-- Chart -->
+        <div class="card">
+            <div class="card-title">Patrimônio Líquido</div>
+            <div class="chart-container" id="balanceChart">
+                <!-- Chart will be rendered here -->
+                <div style="display: flex; align-items: flex-end; height: 100%; gap: 20px; padding-top: 20px;">
+                    <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                        <div style="background-color: #17a2b8; width: 30px; height: 20%; border-radius: 5px 5px 0 0;"></div>
+                        <div style="font-size: 0.8rem; margin-top: 5px;">Jan</div>
+                    </div>
+                    <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                        <div style="background-color: #17a2b8; width: 30px; height: 35%; border-radius: 5px 5px 0 0;"></div>
+                        <div style="font-size: 0.8rem; margin-top: 5px;">Fev</div>
+                    </div>
+                    <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                        <div style="background-color: #17a2b8; width: 30px; height: 50%; border-radius: 5px 5px 0 0;"></div>
+                        <div style="font-size: 0.8rem; margin-top: 5px;">Mar</div>
+                    </div>
+                    <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                        <div style="background-color: #17a2b8; width: 30px; height: 70%; border-radius: 5px 5px 0 0;"></div>
+                        <div style="font-size: 0.8rem; margin-top: 5px;">Abr</div>
+                    </div>
+                    <div style="flex: 1; display: flex; flex-direction: column; align-items: center;">
+                        <div style="background-color: #17a2b8; width: 30px; height: 100%; border-radius: 5px 5px 0 0;"></div>
+                        <div style="font-size: 0.8rem; margin-top: 5px;">Mai</div>
+                    </div>
+                </div>
+            </div>
+        </div>
         
-    <script src="./assets/scripts/script.js"></script>
+        <!-- Categories -->
+        <div class="card">
+            <div class="card-title">Gastos por Categoria</div>
+            <div class="categories-container">
+                <div class="category-card">
+                    <div class="category-emoji">🍔</div>
+                    <div class="category-info">
+                        <div class="category-name">Alimentação</div>
+                        <div class="category-amount">R$ 1.200,00</div>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-emoji">🏠</div>
+                    <div class="category-info">
+                        <div class="category-name">Moradia</div>
+                        <div class="category-amount">R$ 1.500,00</div>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-emoji">🚗</div>
+                    <div class="category-info">
+                        <div class="category-name">Transporte</div>
+                        <div class="category-amount">R$ 400,00</div>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-emoji">🛍️</div>
+                    <div class="category-info">
+                        <div class="category-name">Compras</div>
+                        <div class="category-amount">R$ 350,00</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Transactions -->
+        <div class="card">
+            <div class="card-title">Transações Recentes</div>
+            <div class="transactions-tabs">
+                <div class="tab active">Todas</div>
+                <div class="tab">Saídas</div>
+                <div class="tab">Entradas</div>
+            </div>
+            <div>
+                <div class="transaction-item">
+                    <div class="transaction-emoji">🍔</div>
+                    <div class="transaction-info">
+                        <div class="transaction-name">Restaurante</div>
+                        <div class="transaction-date">15/05/2023 - Alimentação</div>
+                    </div>
+                    <div class="transaction-amount transaction-expense">- R$ 85,90</div>
+                </div>
+                <div class="transaction-item">
+                    <div class="transaction-emoji">💰</div>
+                    <div class="transaction-info">
+                        <div class="transaction-name">Salário</div>
+                        <div class="transaction-date">10/05/2023 - Renda</div>
+                    </div>
+                    <div class="transaction-amount transaction-income">+ R$ 5.000,00</div>
+                </div>
+                <div class="transaction-item">
+                    <div class="transaction-emoji">🏠</div>
+                    <div class="transaction-info">
+                        <div class="transaction-name">Aluguel</div>
+                        <div class="transaction-date">05/05/2023 - Moradia</div>
+                    </div>
+                    <div class="transaction-amount transaction-expense">- R$ 1.200,00</div>
+                </div>
+                <div class="transaction-item">
+                    <div class="transaction-emoji">🚗</div>
+                    <div class="transaction-info">
+                        <div class="transaction-name">Combustível</div>
+                        <div class="transaction-date">03/05/2023 - Transporte</div>
+                    </div>
+                    <div class="transaction-amount transaction-expense">- R$ 150,00</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Add Transaction Modal -->
+    <div class="modal" id="transactionModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Adicionar Transação</h3>
+                <button class="close-btn" id="closeModal">&times;</button>
+            </div>
+            <form id="transactionForm">
+                <div class="form-group">
+                    <label class="form-label" for="transactionName">Nome da Transação</label>
+                    <input type="text" class="form-control" id="transactionName" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="transactionValue">Valor</label>
+                    <input type="number" class="form-control" id="transactionValue" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="transactionDescription">Descrição</label>
+                    <textarea class="form-control" id="transactionDescription" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="transactionAccount">Conta</label>
+                    <select class="form-control" id="transactionAccount" required>
+                        <option value="">Selecione...</option>
+                            <option value="Conta 1">Conta 1 -> 12.450,00</option>
+                            <option value="Conta 2">Conta 2 -> -1.245,00</option>
+                            <option value="Conta 3">Conta 3 -> 25.000,00</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="transactionDate">Data</label>
+                        <input type="date" class="form-control" id="transactionDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="transactionCategory">Categoria</label>
+                        <select class="form-control" id="transactionCategory" required>
+                            <option value="">Selecione...</option>
+                            <option value="food">Alimentação</option>
+                            <option value="housing">Moradia</option>
+                            <option value="transport">Transporte</option>
+                            <option value="shopping">Compras</option>
+                            <option value="entertainment">Lazer</option>
+                            <option value="health">Saúde</option>
+                            <option value="education">Educação</option>
+                            <option value="income">Renda</option>
+                            <option value="other">Outro</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="transactionType">Tipo</label>
+                        <select class="form-control" id="transactionType" required>
+                            <option value="expense">Gasto</option>
+                            <option value="income">Entrada</option>
+                            <option value="transfer">Transferência</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="transactionCurrency">Moeda</label>
+                        <select class="form-control" id="transactionCurrency">
+                            <option value="BRL">Real (BRL)</option>
+                            <option value="USD">Dólar (USD)</option>
+                            <option value="EUR">Euro (EUR)</option>
+                            <option value="GBP">Libra (GBP)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="currency-fields" id="currencyFields">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="exchangeRate">Taxa de Conversão</label>
+                            <input type="number" class="form-control" id="exchangeRate" step="0.0001">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="convertedValue">Valor Convertido</label>
+                            <input type="number" class="form-control" id="convertedValue" step="0.01" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline" id="cancelTransaction">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar Transação</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
