@@ -19,7 +19,101 @@ The transaction will have a ID.
 It will use a external API to get the current value of conversion and accept a user input.
 */
 
+// Navegação
+document.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', function() {
+        document.querySelectorAll('.nav-item').forEach(navItem => {
+            navItem.classList.remove('active');
+        });
+        this.classList.add('active');
+        
+        // Carregar o conteúdo da página aqui :                                         <- TODO ->
+        if (this.querySelector('span').textContent === 'Home') {
+            document.querySelector('.page-title').textContent = 'Visão Geral';
+        } else {
+            document.querySelector('.page-title').textContent = this.querySelector('span').textContent;
+        }
+    });
+});
 
+// Modal de transações
+const modal = document.getElementById('transactionModal');
+const addBtn = document.getElementById('addTransactionBtn');
+const closeBtn = document.getElementById('closeModal');
+const cancelBtn = document.getElementById('cancelTransaction');
+const currencySelect = document.getElementById('transactionCurrency');
+const currencyFields = document.getElementById('currencyFields');
+const transactionValue = document.getElementById('transactionValue');
+const exchangeRate = document.getElementById('exchangeRate');
+const convertedValue = document.getElementById('convertedValue');
+
+addBtn.addEventListener('click', () => {
+    modal.style.display = 'flex';
+});
+
+closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+cancelBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+    }
+});
+
+// TODO: Isso deve aparecer de se a moeda selecionada for != da moeda padrão da conta selecionada
+currencySelect.addEventListener('change', (e) => {
+    if (e.target.value !== 'BRL') {
+        currencyFields.style.display = 'block';
+    } else {
+        currencyFields.style.display = 'none';
+    }
+});
+
+// Conversão de moeda
+transactionValue.addEventListener('input', updateConvertedValue);
+exchangeRate.addEventListener('input', updateConvertedValue);
+
+function updateConvertedValue() {
+    if (transactionValue.value && exchangeRate.value) {
+        const value = parseFloat(transactionValue.value);
+        const rate = parseFloat(exchangeRate.value);
+        convertedValue.value = (value * rate).toFixed(2);
+    }
+}
+
+// Salvamento das informações (Envio do form)
+document.getElementById('transactionForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    // TODO: Lidar com o salvamento da informações
+    alert('Transação adicionada com sucesso!');
+    modal.style.display = 'none';
+    // Reinicia os dados do formulario
+    e.target.reset();
+    currencyFields.style.display = 'none';
+});
+
+// Tabs 
+document.querySelectorAll('.tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+        document.querySelectorAll('.tab').forEach(t => {
+            t.classList.remove('active');
+        });
+        this.classList.add('active');
+        // TODO: Filtrar as transações e exibir
+    });
+});
+
+// Define a data de hoje como padrão
+document.getElementById('transactionDate').valueAsDate = new Date();
+
+
+
+//  Debug
 function clearLocalStorage(){
     localStorage.clear();
     displayAccounts();
