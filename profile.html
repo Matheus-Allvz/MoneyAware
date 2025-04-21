@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Aware - Meu Perfil</title>
+    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="./assets/styles/profile.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-brand">Finanças</div>
+        <a class="nav-link nav-item" href="./index.html">
+            <i>🏠</i>
+            <span>Visão Geral</span>
+        </a>
+        <a class="nav-link nav-item" href="./transactions.html">
+                <i>💸</i>
+                <span>Transações</span>
+        </a>
+        <a class="nav-link nav-item" href="./accounts.html">
+            <i>🏦</i>
+            <span>Contas</span>
+        </a>
+        <a class="nav-link nav-item active" href="./profile.html">
+            <i>👤</i>
+            <span>Perfil</span>
+        </a>
+        <div class="nav-footer">
+            <a class="nav-link nav-item logout" href="#blank">
+                <i>🚪</i>
+                <span>Sair</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1 class="page-title">Meu Perfil</h1>
+        
+        <!-- User Info Card -->
+        <div class="card">
+            <div class="card-title">Informações Pessoais</div>
+            <div class="user-info">
+                <div class="user-avatar">👤</div>
+                <div class="user-details">
+                    <div class="user-name">João da Silva</div>
+                    <div class="user-email">joao.silva@example.com</div>
+                    <div class="user-meta">Membro desde: 15/03/2022</div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="userCurrency">Moeda Principal</label>
+                <select class="form-control" id="userCurrency">
+                    <option value="BRL" selected>Real Brasileiro (R$)</option>
+                    <option value="USD">Dólar Americano ($)</option>
+                    <option value="EUR">Euro (€)</option>
+                    <option value="GBP">Libra Esterlina (£)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label class="form-label" for="userLanguage">Idioma</label>
+                <select class="form-control" id="userLanguage">
+                    <option value="pt-BR" selected>Português (Brasil)</option>
+                    <option value="en-US">Inglês (EUA)</option>
+                    <option value="es-ES">Espanhol</option>
+                </select>
+            </div>
+            
+            <div class="form-footer">
+                <button class="btn btn-primary">Salvar Alterações</button>
+            </div>
+        </div>
+        
+        <!-- Data Management Card -->
+        <div class="card">
+            <div class="card-title">Gerenciamento de Dados</div>
+            
+            <div class="data-option">
+                <div class="option-info">
+                    <div class="option-icon">📤</div>
+                    <div>
+                        <div class="option-title">Exportar Dados</div>
+                        <div class="option-description">Salve um backup de todas as suas transações e contas em um arquivo JSON</div>
+                    </div>
+                </div>
+                <button class="btn btn-outline" id="exportDataBtn">Exportar</button>
+            </div>
+            
+            <div class="data-option">
+                <div class="option-info">
+                    <div class="option-icon">📥</div>
+                    <div>
+                        <div class="option-title">Importar Dados</div>
+                        <div class="option-description">Substitua seus dados atuais por um arquivo JSON de backup</div>
+                    </div>
+                </div>
+                <div class="import-actions">
+                    <input type="file" id="importFile" accept=".json" style="display: none;">
+                    <button class="btn btn-outline" id="chooseFileBtn">Escolher Arquivo</button>
+                    <button class="btn btn-primary" id="importDataBtn" disabled>Importar</button>
+                </div>
+            </div>
+            
+            <div class="data-option danger-option">
+                <div class="option-info">
+                    <div class="option-icon">⚠️</div>
+                    <div>
+                        <div class="option-title">Limpar Todos os Dados</div>
+                        <div class="option-description">Esta ação irá remover permanentemente todas as suas contas e transações</div>
+                    </div>
+                </div>
+                <button class="btn btn-danger" id="deleteAllDataBtn">Limpar Tudo</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Confirmation Modal -->
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content small-modal">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalConfirmationTitle">Confirmação</h3>
+                <button class="close-btn" id="closeConfirmationModal">&times;</button>
+            </div>
+            <div class="modal-body" id="modalConfirmationBody">
+                Tem certeza que deseja realizar esta ação?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline" id="cancelAction">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="confirmAction">Confirmar</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content small-modal">
+            <div class="modal-header">
+                <h3 class="modal-title">Sucesso!</h3>
+                <button class="close-btn" id="closeSuccessModal">&times;</button>
+            </div>
+            <div class="modal-body" id="successModalBody">
+                Operação realizada com sucesso.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="closeSuccessBtn">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/scripts/profile.js"></script>
+</body>
+</html>
