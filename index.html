@@ -13,27 +13,27 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-brand">Finanças</div>
-        <div class="nav-item active">
+        <a class="nav-link nav-item active" href="./index.html">
             <i>🏠</i>
-            <span>Home</span>
-        </div>
-        <div class="nav-item">
-            <i>💸</i>
-            <span>Transações</span>
-        </div>
-        <div class="nav-item">
+            <span>Visão Geral</span>
+        </a>
+        <a class="nav-link nav-item" href="./transactions.html">
+                <i>💸</i>
+                <span>Transações</span>
+        </a>
+        <a class="nav-link nav-item" href="./accounts.html">
             <i>🏦</i>
             <span>Contas</span>
-        </div>
-        <div class="nav-item">
+        </a>
+        <a class="nav-link nav-item" href="./profile.html">
             <i>👤</i>
             <span>Perfil</span>
-        </div>
+        </a>
         <div class="nav-footer">
-            <div class="nav-item logout">
+            <a class="nav-link nav-item logout" href="#blank">
                 <i>🚪</i>
                 <span>Sair</span>
-            </div>
+            </a>
         </div>
     </nav>
 
@@ -48,17 +48,17 @@
                 <button class="btn btn-primary" id="addTransactionBtn">+ Adicionar Transação</button>
             </div>
             <div class="accounts-container">
-                <div class="account-card">
+                <div class="account-card" style="background: linear-gradient(135deg, #dc3545, #a71d2a);">
                     <div class="account-card-name">Banco Principal</div>
                     <div class="account-card-balance">R$ 12.450,00</div>
                     <div class="account-card-transactions">15 transações</div>
                 </div>
-                <div class="account-card">
+                <div class="account-card" style="background: linear-gradient(135deg, #28a745, #1e7e34);">
                     <div class="account-card-name">Cartão de Crédito</div>
                     <div class="account-card-balance">-R$ 1.245,00</div>
                     <div class="account-card-transactions">8 transações</div>
                 </div>
-                <div class="account-card">
+                <div class="account-card" style="background: linear-gradient(135deg, #6f42c1, #4a1d96);">
                     <div class="account-card-name">Investimentos</div>
                     <div class="account-card-balance">R$ 25.000,00</div>
                     <div class="account-card-transactions">3 transações</div>
@@ -118,81 +118,169 @@
             </div>
         </div>
         
-        <!-- Categories -->
-        <div class="card">
-            <div class="card-title">Gastos por Categoria</div>
-            <div class="categories-container">
-                <div class="category-card">
-                    <div class="category-emoji">🍔</div>
-                    <div class="category-info">
-                        <div class="category-name">Alimentação</div>
-                        <div class="category-amount">R$ 1.200,00</div>
+        <!-- Categorias -->
+        <div class="categories-section">
+            <div class="card">
+                <div class="card-title">Gastos por Categoria</div>
+                <div class="categories-summary">
+                    <div class="category-item" data-category="food">
+                        <div class="category-header">
+                            <div class="category-emoji">🍔</div>
+                            <div class="category-name">Alimentação</div>
+                        </div>
+                        <div class="category-details">
+                            <div class="category-amount">R$ 1.200,00</div>
+                            <div class="category-percentage">25%</div>
+                        </div>
+                        <div class="category-progress">
+                            <div class="progress-bar" style="width: 25%; background-color: #FF6384;"></div>
+                        </div>
                     </div>
+                    <div class="category-item" data-category="housing">
+                        <div class="category-header">
+                            <div class="category-emoji">🏠</div>
+                            <div class="category-name">Moradia</div>
+                        </div>
+                        <div class="category-details">
+                            <div class="category-amount">R$ 1.500,00</div>
+                            <div class="category-percentage">31%</div>
+                        </div>
+                        <div class="category-progress">
+                            <div class="progress-bar" style="width: 31%; background-color: #36A2EB;"></div>
+                        </div>
+                    </div>
+                    <div class="category-item" data-category="transport">
+                        <div class="category-header">
+                            <div class="category-emoji">🚗</div>
+                            <div class="category-name">Transporte</div>
+                        </div>
+                        <div class="category-details">
+                            <div class="category-amount">R$ 400,00</div>
+                            <div class="category-percentage">8%</div>
+                        </div>
+                        <div class="category-progress">
+                            <div class="progress-bar" style="width: 8%; background-color: #FFCE56;"></div>
+                        </div>
+                    </div>
+                    <div class="category-item" data-category="shopping">
+                        <div class="category-header">
+                            <div class="category-emoji">🛍️</div>
+                            <div class="category-name">Compras</div>
+                        </div>
+                        <div class="category-details">
+                            <div class="category-amount">R$ 350,00</div>
+                            <div class="category-percentage">7%</div>
+                        </div>
+                        <div class="category-progress">
+                            <div class="progress-bar" style="width: 7%; background-color: #4BC0C0;"></div>
+                        </div>
+                    </div>
+                    <div class="category-item" data-category="other">
+                        <div class="category-header">
+                            <div class="category-emoji">📦</div>
+                            <div class="category-name">Outros</div>
+                        </div>
+                        <div class="category-details">
+                            <div class="category-amount">R$ 1.350,00</div>
+                            <div class="category-percentage">29%</div>
+                        </div>
+                        <div class="category-progress">
+                            <div class="progress-bar" style="width: 29%; background-color: #9966FF;"></div>
+                        </div>
+                    </div>
+
+                    
                 </div>
-                <div class="category-card">
-                    <div class="category-emoji">🏠</div>
-                    <div class="category-info">
-                        <div class="category-name">Moradia</div>
-                        <div class="category-amount">R$ 1.500,00</div>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <div class="category-emoji">🚗</div>
-                    <div class="category-info">
-                        <div class="category-name">Transporte</div>
-                        <div class="category-amount">R$ 400,00</div>
-                    </div>
-                </div>
-                <div class="category-card">
-                    <div class="category-emoji">🛍️</div>
-                    <div class="category-info">
-                        <div class="category-name">Compras</div>
-                        <div class="category-amount">R$ 350,00</div>
-                    </div>
+                <div class="categories-total">
+                    <div>Total de Gastos:</div>
+                    <div class="total-amount">R$ 4.800,00</div>
                 </div>
             </div>
         </div>
         
         <!-- Transactions -->
-        <div class="card">
-            <div class="card-title">Transações Recentes</div>
-            <div class="transactions-tabs">
-                <div class="tab active">Todas</div>
-                <div class="tab">Saídas</div>
-                <div class="tab">Entradas</div>
-            </div>
-            <div>
-                <div class="transaction-item">
-                    <div class="transaction-emoji">🍔</div>
-                    <div class="transaction-info">
-                        <div class="transaction-name">Restaurante</div>
-                        <div class="transaction-date">15/05/2023 - Alimentação</div>
-                    </div>
-                    <div class="transaction-amount transaction-expense">- R$ 85,90</div>
+        <div class="transactions-section">
+            <div class="card">
+                <div class="card-title">Lista de Transações</div>
+                <div class="transactions-header">
+                    <div class="transactions-count">15 transações encontradas</div>
                 </div>
-                <div class="transaction-item">
-                    <div class="transaction-emoji">💰</div>
-                    <div class="transaction-info">
-                        <div class="transaction-name">Salário</div>
-                        <div class="transaction-date">10/05/2023 - Renda</div>
+                <div class="transactions-list">
+                    <div class="transaction-item">
+                        <div class="transaction-icon">
+                            <div class="transaction-emoji">🍔</div>
+                        </div>
+                        <div class="transaction-details">
+                            <div class="transaction-name">Restaurante</div>
+                            <div class="transaction-info">
+                                <span class="transaction-date">15/05/2023</span>
+                                <span class="transaction-account">Banco Principal</span>
+                                <span class="transaction-category">Alimentação</span>
+                            </div>
+                        </div>
+                        <div class="transaction-amount expense">- R$ 85,90</div>
                     </div>
-                    <div class="transaction-amount transaction-income">+ R$ 5.000,00</div>
+                    <div class="transaction-item">
+                        <div class="transaction-icon">
+                            <div class="transaction-emoji">💰</div>
+                        </div>
+                        <div class="transaction-details">
+                            <div class="transaction-name">Salário</div>
+                            <div class="transaction-info">
+                                <span class="transaction-date">10/05/2023</span>
+                                <span class="transaction-account">Banco Principal</span>
+                                <span class="transaction-category">Renda</span>
+                            </div>
+                        </div>
+                        <div class="transaction-amount income">+ R$ 5.000,00</div>
+                    </div>
+                    <div class="transaction-item">
+                        <div class="transaction-icon">
+                            <div class="transaction-emoji">🏠</div>
+                        </div>
+                        <div class="transaction-details">
+                            <div class="transaction-name">Aluguel</div>
+                            <div class="transaction-info">
+                                <span class="transaction-date">05/05/2023</span>
+                                <span class="transaction-account">Banco Principal</span>
+                                <span class="transaction-category">Moradia</span>
+                            </div>
+                        </div>
+                        <div class="transaction-amount expense">- R$ 1.200,00</div>
+                    </div>
+                    <div class="transaction-item">
+                        <div class="transaction-icon">
+                            <div class="transaction-emoji">🚗</div>
+                        </div>
+                        <div class="transaction-details">
+                            <div class="transaction-name">Combustível</div>
+                            <div class="transaction-info">
+                                <span class="transaction-date">03/05/2023</span>
+                                <span class="transaction-account">Cartão de Crédito</span>
+                                <span class="transaction-category">Transporte</span>
+                            </div>
+                        </div>
+                        <div class="transaction-amount expense">- R$ 150,00</div>
+                    </div>
+                    <div class="transaction-item">
+                        <div class="transaction-icon">
+                            <div class="transaction-emoji">🛍️</div>
+                        </div>
+                        <div class="transaction-details">
+                            <div class="transaction-name">Compras</div>
+                            <div class="transaction-info">
+                                <span class="transaction-date">01/05/2023</span>
+                                <span class="transaction-account">Cartão de Crédito</span>
+                                <span class="transaction-category">Compras</span>
+                            </div>
+                        </div>
+                        <div class="transaction-amount expense">- R$ 350,00</div>
+                    </div>
                 </div>
-                <div class="transaction-item">
-                    <div class="transaction-emoji">🏠</div>
-                    <div class="transaction-info">
-                        <div class="transaction-name">Aluguel</div>
-                        <div class="transaction-date">05/05/2023 - Moradia</div>
-                    </div>
-                    <div class="transaction-amount transaction-expense">- R$ 1.200,00</div>
-                </div>
-                <div class="transaction-item">
-                    <div class="transaction-emoji">🚗</div>
-                    <div class="transaction-info">
-                        <div class="transaction-name">Combustível</div>
-                        <div class="transaction-date">03/05/2023 - Transporte</div>
-                    </div>
-                    <div class="transaction-amount transaction-expense">- R$ 150,00</div>
+                <div class="transactions-pagination">
+                    <button class="btn btn-outline" disabled>Anterior</button>
+                    <span class="pagination-info">Página 1 de 3</span>
+                    <button class="btn btn-outline">Próxima</button>
                 </div>
             </div>
         </div>
@@ -205,85 +293,90 @@
                 <h3 class="modal-title">Adicionar Transação</h3>
                 <button class="close-btn" id="closeModal">&times;</button>
             </div>
-            <form id="transactionForm">
-                <div class="form-group">
-                    <label class="form-label" for="transactionName">Nome da Transação</label>
-                    <input type="text" class="form-control" id="transactionName" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="transactionValue">Valor</label>
-                    <input type="number" class="form-control" id="transactionValue" step="0.01" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="transactionDescription">Descrição</label>
-                    <textarea class="form-control" id="transactionDescription" rows="2"></textarea>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="transactionAccount">Conta</label>
-                    <select class="form-control" id="transactionAccount" required>
-                        <option value="">Selecione...</option>
-                            <option value="Conta 1">Conta 1 -> 12.450,00</option>
-                            <option value="Conta 2">Conta 2 -> -1.245,00</option>
-                            <option value="Conta 3">Conta 3 -> 25.000,00</option>
-                    </select>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label" for="transactionDate">Data</label>
-                        <input type="date" class="form-control" id="transactionDate" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="transactionCategory">Categoria</label>
-                        <select class="form-control" id="transactionCategory" required>
-                            <option value="">Selecione...</option>
-                            <option value="food">Alimentação</option>
-                            <option value="housing">Moradia</option>
-                            <option value="transport">Transporte</option>
-                            <option value="shopping">Compras</option>
-                            <option value="entertainment">Lazer</option>
-                            <option value="health">Saúde</option>
-                            <option value="education">Educação</option>
-                            <option value="income">Renda</option>
-                            <option value="other">Outro</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label class="form-label" for="transactionType">Tipo</label>
-                        <select class="form-control" id="transactionType" required>
-                            <option value="expense">Gasto</option>
-                            <option value="income">Entrada</option>
-                            <option value="transfer">Transferência</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="transactionCurrency">Moeda</label>
-                        <select class="form-control" id="transactionCurrency">
-                            <option value="BRL">Real (BRL)</option>
-                            <option value="USD">Dólar (USD)</option>
-                            <option value="EUR">Euro (EUR)</option>
-                            <option value="GBP">Libra (GBP)</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="currency-fields" id="currencyFields">
-                    <div class="form-row">
+            <div class="modal-body">
+                <div class="modal-body-content">
+                    <!-- Todo o conteúdo do formulário aqui -->
+                    <form id="transactionForm">
                         <div class="form-group">
-                            <label class="form-label" for="exchangeRate">Taxa de Conversão</label>
-                            <input type="number" class="form-control" id="exchangeRate" step="0.0001">
+                            <label class="form-label" for="transactionName">Nome da Transação</label>
+                            <input type="text" class="form-control" id="transactionName" required>
                         </div>
                         <div class="form-group">
-                            <label class="form-label" for="convertedValue">Valor Convertido</label>
-                            <input type="number" class="form-control" id="convertedValue" step="0.01" readonly>
+                            <label class="form-label" for="transactionValue">Valor</label>
+                            <input type="number" class="form-control" id="transactionValue" step="0.01" required>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label class="form-label" for="transactionDescription">Descrição</label>
+                            <textarea class="form-control" id="transactionDescription" rows="2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="transactionAccount">Conta</label>
+                            <select class="form-control" id="transactionAccount" required>
+                                <option value="">Selecione...</option>
+                                    <option value="Conta 1">Conta 1 -> 12.450,00</option>
+                                    <option value="Conta 2">Conta 2 -> -1.245,00</option>
+                                    <option value="Conta 3">Conta 3 -> 25.000,00</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="transactionDate">Data</label>
+                                <input type="date" class="form-control" id="transactionDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="transactionCategory">Categoria</label>
+                                <select class="form-control" id="transactionCategory" required>
+                                    <option value="">Selecione...</option>
+                                    <option value="food">Alimentação</option>
+                                    <option value="housing">Moradia</option>
+                                    <option value="transport">Transporte</option>
+                                    <option value="shopping">Compras</option>
+                                    <option value="entertainment">Lazer</option>
+                                    <option value="health">Saúde</option>
+                                    <option value="education">Educação</option>
+                                    <option value="income">Renda</option>
+                                    <option value="other">Outro</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="transactionType">Tipo</label>
+                                <select class="form-control" id="transactionType" required>
+                                    <option value="expense">Gasto</option>
+                                    <option value="income">Entrada</option>
+                                    <option value="transfer">Transferência</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="transactionCurrency">Moeda</label>
+                                <select class="form-control" id="transactionCurrency">
+                                    <option value="BRL">Real (BRL)</option>
+                                    <option value="USD">Dólar (USD)</option>
+                                    <option value="EUR">Euro (EUR)</option>
+                                    <option value="GBP">Libra (GBP)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="currency-fields" id="currencyFields">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label" for="exchangeRate">Taxa de Conversão</label>
+                                    <input type="number" class="form-control" id="exchangeRate" step="0.0001">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label" for="convertedValue">Valor Convertido</label>
+                                    <input type="number" class="form-control" id="convertedValue" step="0.01" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline" id="cancelTransaction">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Salvar Transação</button>
+                        </div>
+                    </form>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline" id="cancelTransaction">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Salvar Transação</button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
 
