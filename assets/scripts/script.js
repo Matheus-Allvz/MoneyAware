@@ -19,7 +19,7 @@ The transaction will have a ID.
 It will use a external API to get the current value of conversion and accept a user input.
 */
 
-// Navegação
+// Navegação e carregamento da página
 document.querySelectorAll('.nav-item').forEach(item => {
     item.addEventListener('click', function() {
         document.querySelectorAll('.nav-item').forEach(navItem => {
@@ -27,62 +27,111 @@ document.querySelectorAll('.nav-item').forEach(item => {
         });
         this.classList.add('active');
         
-        // Carregar o conteúdo da página aqui :                                         <- TODO ->
-        if (this.querySelector('span').textContent === 'Home') {
-            document.querySelector('.page-title').textContent = 'Visão Geral';
-        } else {
-            document.querySelector('.page-title').textContent = this.querySelector('span').textContent;
-        }
+        // TODO: Carregar o conteúdo da página aqui
+        // if (this.querySelector('span').textContent === 'Visão Geral') {
+        //     document.querySelector('.page-title').textContent = 'Visão Geral';
+        // } else {
+        //     document.querySelector('.page-title').textContent = this.querySelector('span').textContent;
+        // }
     });
 });
 
+
+
+/*****************************************/
+//
 // Modal de transações
-const modal = document.getElementById('transactionModal');
-const addBtn = document.getElementById('addTransactionBtn');
-const closeBtn = document.getElementById('closeModal');
-const cancelBtn = document.getElementById('cancelTransaction');
-const currencySelect = document.getElementById('transactionCurrency');
-const currencyFields = document.getElementById('currencyFields');
-const transactionValue = document.getElementById('transactionValue');
-const exchangeRate = document.getElementById('exchangeRate');
-const convertedValue = document.getElementById('convertedValue');
+//
+/*****************************************/
 
-addBtn.addEventListener('click', () => {
-    modal.style.display = 'flex';
+// Elementos do Modal
+const addTransactionModal = document.getElementById('transactionModal');
+const addTransactionForm = document.getElementById('transactionForm');
+const addTransactionBtn = document.getElementById('addTransactionBtn');
+const closeBtnAddTransactionModal = document.getElementById('closeModal');
+const cancelBtnAddTransaction = document.getElementById('cancelTransaction');
+const transactionTypeSelectAddTransaction = document.getElementById('transactionTypeModal');
+const transferFieldsAddTransaction = document.getElementById('transferFields');
+const currencySelectAddTransaction = document.getElementById('transactionCurrency');
+const currencyFieldsAddTransaction = document.getElementById('currencyFields');
+const transactionValueAddTransaction = document.getElementById('transactionValue');
+const exchangeRateAddTransaction = document.getElementById('exchangeRate');
+const convertedValueAddTransaction = document.getElementById('convertedValue');
+const hiddenModalElementsAddTransaction = document.getElementsByClassName('initially-hidden');
+
+/*
+    Fecha o modal, apaga os dados deixados no formulário e esconde os campos relacionados a transferência e conversão de moeda.
+*/
+function closeAddTransactionModal() {
+    addTransactionModal.style.display = 'none';
+    addTransactionForm.reset();
+    transferFieldsAddTransaction.style.display = 'none';
+    currencyFieldsAddTransaction.style.display = 'none';
+    
+}
+
+/*
+    Ao clicar no botão de adicionar transações o formulário do modal é resetado, o modal recebe display: flex; e os elementos que precisam ficar escondidos recebem display none;
+*/
+addTransactionBtn.addEventListener('click', () => {
+    addTransactionModal.style.display = 'flex';
+    document.getElementById('transactionDate').valueAsDate = new Date();
 });
 
-closeBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
+
+/* 
+    Eventos de 'click' no botão de fechar, cancelar ou fora do modal fecham ele.
+*/
+closeBtnAddTransactionModal.addEventListener('click', () => {
+    closeAddTransactionModal();
 });
 
-cancelBtn.addEventListener('click', () => {
-    modal.style.display = 'none';
+cancelBtnAddTransaction.addEventListener('click', () => {
+    closeAddTransactionModal();
 });
 
 window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-        modal.style.display = 'none';
+    if (e.target === addTransactionModal) {
+        closeAddTransactionModal();
     }
 });
+
+
+
+/*
+Eventos para exibir os campos escondidos caso as condições para isso sejam atendidas
+*/
 
 // TODO: Isso deve aparecer de se a moeda selecionada for != da moeda padrão da conta selecionada
-currencySelect.addEventListener('change', (e) => {
+currencySelectAddTransaction.addEventListener('change', (e) => {
     if (e.target.value !== 'BRL') {
-        currencyFields.style.display = 'block';
+        currencyFieldsAddTransaction.style.display = 'block';
     } else {
-        currencyFields.style.display = 'none';
+        currencyFieldsAddTransaction.style.display = 'none';
     }
 });
 
-// Conversão de moeda
-transactionValue.addEventListener('input', updateConvertedValue);
-exchangeRate.addEventListener('input', updateConvertedValue);
+transactionTypeSelectAddTransaction.addEventListener('change', (e) => {
+    if (e.target.value === 'transfer') {
+        transferFieldsAddTransaction.style.display = 'block';
+    } else {
+        transferFieldsAddTransaction.style.display = 'none';
+    }
+});
+
+
+
+/*
+    Conversão de moeda
+*/
+transactionValueAddTransaction.addEventListener('input', updateConvertedValue);
+exchangeRateAddTransaction.addEventListener('input', updateConvertedValue);
 
 function updateConvertedValue() {
-    if (transactionValue.value && exchangeRate.value) {
-        const value = parseFloat(transactionValue.value);
-        const rate = parseFloat(exchangeRate.value);
-        convertedValue.value = (value * rate).toFixed(2);
+    if (transactionValueAddTransaction.value && exchangeRateAddTransaction.value) {
+        const value = parseFloat(transactionValueAddTransaction.value);
+        const rate = parseFloat(exchangeRateAddTransaction.value);
+        convertedValueAddTransaction.value = (value * rate).toFixed(2);
     }
 }
 
@@ -91,25 +140,14 @@ document.getElementById('transactionForm').addEventListener('submit', (e) => {
     e.preventDefault();
     // TODO: Lidar com o salvamento da informações
     alert('Transação adicionada com sucesso!');
-    modal.style.display = 'none';
+    addTransactionModal.style.display = 'none';
     // Reinicia os dados do formulario
     e.target.reset();
-    currencyFields.style.display = 'none';
+    currencyFieldsAddTransaction.style.display = 'none';
 });
 
-// Tabs 
-document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('click', function() {
-        document.querySelectorAll('.tab').forEach(t => {
-            t.classList.remove('active');
-        });
-        this.classList.add('active');
-        // TODO: Filtrar as transações e exibir
-    });
-});
 
-// Define a data de hoje como padrão
-document.getElementById('transactionDate').valueAsDate = new Date();
+
 
 
 
@@ -189,19 +227,3 @@ function displayAccounts() {
         listDiv.appendChild(div);
     });
 }
-
-
-document.getElementById("newAccountForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-
-    const name = document.getElementById("newAccountName").value;
-    const balance = parseFloat(document.getElementById("newAccountBalance").value).toFixed(2);
-    const currency = document.getElementById("newAccountCurrency").value;
-
-    createAccount(name, balance, currency);
-    displayAccounts();
-});
-
-document.addEventListener("DOMContentLoaded", displayAccounts);
-
-
