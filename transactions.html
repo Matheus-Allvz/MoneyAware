@@ -327,8 +327,8 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group">
-                                <label class="form-label" for="transactionType">Tipo</label>
-                                <select class="form-control" id="transactionType" required>
+                                <label class="form-label" for="transactionTypeModal">Tipo</label>
+                                <select class="form-control" id="transactionTypeModal" required>
                                     <option value="expense">Gasto</option>
                                     <option value="income">Entrada</option>
                                     <option value="transfer">Transferência</option>
@@ -344,7 +344,16 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="currency-fields" id="currencyFields">
+                        <div class="transfer-fields form-group initially-hidden" id="transferFields" style="display: none;">
+                            <label class="form-label" for="transferAccount">Conta beneficiária</label>
+                            <select class="form-control" id="transferAccount">
+                                <option value="">Selecione...</option>
+                                    <option value="Conta 1">Conta 1 -> 12.450,00</option>
+                                    <option value="Conta 2">Conta 2 -> -1.245,00</option>
+                                    <option value="Conta 3">Conta 3 -> 25.000,00</option>
+                            </select>
+                        </div>
+                        <div class="currency-fields initially-hidden" id="currencyFields" style="display: none;">
                             <div class="form-row">
                                 <div class="form-group">
                                     <label class="form-label" for="exchangeRate">Taxa de Conversão</label>

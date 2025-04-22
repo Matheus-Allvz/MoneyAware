@@ -850,11 +850,7 @@ body {
     #addTransactionBtn {
         width: 100%;
     }
-    
-    .transactions-pagination {
-        flex-direction: column;
-        gap: 10px;
-    }
+
 }
 
 /* ============================================= */
