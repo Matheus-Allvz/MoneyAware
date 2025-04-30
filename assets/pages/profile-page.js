@@ -1,43 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Money Aware - Meu Perfil</title>
-    <link rel="stylesheet" href="./assets/styles/style.css">
-    <link rel="stylesheet" href="./assets/styles/profile.css">
-</head>
-<body>
-    <!-- Navbar -->
-    <nav class="navbar">
-        <div class="navbar-brand">Finanças</div>
-        <a class="nav-link nav-item" href="./index.html">
-            <i>🏠</i>
-            <span>Visão Geral</span>
-        </a>
-        <a class="nav-link nav-item" href="./transactions.html">
-                <i>💸</i>
-                <span>Transações</span>
-        </a>
-        <a class="nav-link nav-item" href="./accounts.html">
-            <i>🏦</i>
-            <span>Contas</span>
-        </a>
-        <a class="nav-link nav-item active" href="./profile.html">
-            <i>👤</i>
-            <span>Perfil</span>
-        </a>
-        <div class="nav-footer">
-            <a class="nav-link nav-item logout" href="#blank">
-                <i>🚪</i>
-                <span>Sair</span>
-            </a>
-        </div>
-    </nav>
-
-    <!-- Main Content -->
-    <div class="main-content">
-        <h1 class="page-title">Meu Perfil</h1>
+export default 
+`
+<h1 class="page-title">Meu Perfil</h1>
         
         <!-- User Info Card -->
         <div class="card">
@@ -116,41 +79,4 @@
                 <button class="btn btn-danger" id="deleteAllDataBtn">Limpar Tudo</button>
             </div>
         </div>
-    </div>
-    
-    <!-- Confirmation Modal -->
-    <div class="modal" id="confirmationModal">
-        <div class="modal-content small-modal">
-            <div class="modal-header">
-                <h3 class="modal-title" id="modalConfirmationTitle">Confirmação</h3>
-                <button class="close-btn" id="closeConfirmationModal">&times;</button>
-            </div>
-            <div class="modal-body" id="modalConfirmationBody">
-                Tem certeza que deseja realizar esta ação?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline" id="cancelAction">Cancelar</button>
-                <button type="button" class="btn btn-primary" id="confirmAction">Confirmar</button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Success Modal -->
-    <div class="modal" id="successModal">
-        <div class="modal-content small-modal">
-            <div class="modal-header">
-                <h3 class="modal-title">Sucesso!</h3>
-                <button class="close-btn" id="closeSuccessModal">&times;</button>
-            </div>
-            <div class="modal-body" id="successModalBody">
-                Operação realizada com sucesso.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="closeSuccessBtn">OK</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="./assets/scripts/profile.js"></script>
-</body>
-</html>
+`
