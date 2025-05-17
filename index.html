@@ -13,24 +13,24 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="navbar-brand">Finanças</div>
-        <a class="nav-link nav-item active" data-page="home">
+        <a href="#home" class="nav-link nav-item active" data-page="home">
             <i>🏠</i>
             <span>Visão Geral</span>
         </a>
-        <a class="nav-link nav-item" data-page="transactions">
+        <a href="#transactions" class="nav-link nav-item" data-page="transactions">
                 <i>💸</i>
                 <span  >Transações</span>
         </a>
-        <a class="nav-link nav-item" data-page="accounts">
+        <a href="#accounts" class="nav-link nav-item" data-page="accounts">
             <i>🏦</i>
             <span>Contas</span>
         </a>
-        <a class="nav-link nav-item" data-page="profile">
+        <a href="#profile" class="nav-link nav-item" data-page="profile">
             <i>👤</i>
             <span>Perfil</span>
         </a>
         <div class="nav-footer">
-            <a class="nav-link nav-item logout" data-page="exit">
+            <a href="#exit" class="nav-link nav-item logout" data-page="exit">
                 <i>🚪</i>
                 <span>Sair</span>
             </a>
@@ -110,7 +110,6 @@
                                     <option value="BRL">Real (BRL)</option>
                                     <option value="USD">Dólar (USD)</option>
                                     <option value="EUR">Euro (EUR)</option>
-                                    <option value="GBP">Libra (GBP)</option>
                                 </select>
                             </div>
                         </div>
@@ -155,30 +154,30 @@
             <form id="addAccountForm">
                 <div class="modal-body">
                     <div class="form-group">
-                        <label class="form-label" for="newAccountName">Nome da Conta*</label>
+                        <label class="form-label" for="newAccountName">Nome da Conta</label>
                         <input type="text" class="form-control" id="newAccountName" required placeholder="Ex: Banco X, Carteira, etc.">
                         <div class="error-message" id="nameError"></div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group">
-                            <label class="form-label" for="newAccountBalance">Saldo Inicial*</label>
+                            <label class="form-label" for="newAccountBalance">Saldo Inicial</label>
                             <input type="number" class="form-control" id="newAccountBalance" step="0.01" required placeholder="0,00">
                             <div class="error-message" id="balanceError"></div>
                         </div>
                         
                         <div class="form-group">
-                            <label class="form-label" for="newAccountCurrency">Moeda*</label>
+                            <label class="form-label" for="newAccountCurrency">Moeda</label>
                             <select class="form-control" id="newAccountCurrency" required>
-                                <option value="BRL">R$ Real Brasileiro</option>
-                                <option value="USD">US$ Dólar Americano</option>
-                                <option value="EUR">€ Euro</option>
+                                <option value="BRL">(R$) Real Brasileiro</option>
+                                <option value="USD">(US$) Dólar Americano</option>
+                                <option value="EUR">(€) Euro</option>
                             </select>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label class="form-label">Cor da Conta*</label>
+                        <label class="form-label">Cor da Conta</label>
                         <div class="color-picker">
                             <input type="radio" name="accountColor" id="colorBlue" value="#4a6fa5" checked>
                             <label for="colorBlue" style="background-color: #4a6fa5;"></label>
@@ -191,24 +190,27 @@
                             
                             <input type="radio" name="accountColor" id="colorPurple" value="#6f42c1">
                             <label for="colorPurple" style="background-color: #6f42c1;"></label>
+
+                            <input type="radio" name="accountColor" id="colorOrange" value="#fd7e14">
+                            <label for="colorOrange" style="background-color: #fd7e14;"></label>
+
+                            <input type="radio" name="accountColor" id="colorTeal" value="#20c997">
+                            <label for="colorTeal" style="background-color: #20c997;"></label>
+
+                            <input type="radio" name="accountColor" id="colorYellow" value="#ffc107">
+                            <label for="colorYellow" style="background-color: #ffc107;"></label>
+
+                            <input type="radio" name="accountColor" id="colorPink" value="#e83e8c">
+                            <label for="colorPink" style="background-color: #e83e8c;"></label>
+
+                            <input type="radio" name="accountColor" id="colorGray" value="#6c757d">
+                            <label for="colorGray" style="background-color: #6c757d;"></label>
+
+                            <input type="radio" name="accountColor" id="colorBlack" value="#343a40">
+                            <label for="colorBlack" style="background-color: #343a40;"></label>
                         </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label class="form-label" for="newAccountType">Tipo de Conta*</label>
-                        <select class="form-control" id="newAccountType" required>
-                            <option value="bank">Conta Bancária</option>
-                            <option value="credit">Cartão de Crédito</option>
-                            <option value="investment">Investimento</option>
-                            <option value="wallet">Carteira</option>
-                            <option value="other">Outro</option>
-                        </select>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label class="form-label" for="newAccountDescription">Descrição</label>
-                        <textarea class="form-control" id="newAccountDescription" rows="2" placeholder="Opcional"></textarea>
-                    </div>
                 </div>
                 
                 <div class="modal-footer">

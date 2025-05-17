@@ -20,7 +20,6 @@ export default
                     <option value="BRL" selected>Real Brasileiro (R$)</option>
                     <option value="USD">Dólar Americano ($)</option>
                     <option value="EUR">Euro (€)</option>
-                    <option value="GBP">Libra Esterlina (£)</option>
                 </select>
             </div>
             

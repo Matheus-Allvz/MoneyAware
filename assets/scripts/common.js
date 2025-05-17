@@ -27,24 +27,30 @@ function clearLocalStorage(){
 }
 
 
+async function loadPage(fileName) {
+    try {
+        const module = await import(`../pages/${fileName}`);
+        document.querySelector('.main-content').innerHTML = module.default;
+    }catch(err){
+        console.error(`Error Loading the page ${fileName}`, err);
+    }
+}
 
 const pages = {
     home: async () => {
-        import(`../pages/home-page.js`).then(module => {
-            document.querySelector('.main-content').innerHTML = module.default;
-        });
+        await loadPage('home-page.js');
 
+        const homeJs = await import('./home.js');
         const transactionModal = await import('./transactionModal.js');
         const addAccountModal = await import('./addAccountModal.js');
         
-        transactionModal.init();
         addAccountModal.init();
+        transactionModal.init();
+        homeJs.displayAccounts();
     },
 
     transactions: async () => {
-        import(`../pages/transactions-page.js`).then(module => {
-            document.querySelector('.main-content').innerHTML = module.default;
-        });
+        await loadPage('transactions-page.js');
 
         const transactionModal = await import('./transactionModal.js');
         
@@ -52,41 +58,51 @@ const pages = {
     },
     
     accounts: async () => {
-        import(`../pages/accounts-page.js`).then(module => {
-            document.querySelector('.main-content').innerHTML = module.default;
-        });
+        await loadPage('accounts-page.js');
 
         const addAccountModal = await import('./addAccountModal.js');
         addAccountModal.init();
     },
 
     profile: async () => {
-        import(`../pages/profile-page.js`).then(module => {
-            document.querySelector('.main-content').innerHTML = module.default;
-        });
+        await loadPage('profile-page.js');
     },
 
     exit: async () => {
-        window.location.href = "https://www.google.com";
+        if(window.confirm("Deseja sair da página?")){
+            window.location.href = "https://www.google.com";
+        }else{
+            window.history.back();
+        }
+        
     }
 }
 
+function getCurrentPageFromHash() {
+    const hash = location.hash.replace('#', '');
+    return hash || 'home';
+}
+
 async function loadPageContent(){
-    const pageName = document.querySelector('.active')?.dataset.page;
+
+    const pageName = getCurrentPageFromHash();
+
+    document.querySelectorAll('.nav-item').forEach(navItem => {
+        navItem.classList.remove('active');
+        if (navItem.dataset.page === pageName) {
+        navItem.classList.add('active');
+        }
+    });
+
 
     if(pages[pageName]){
-        try{
-            await pages[pageName]();
-
-        }catch(err){
-            console.error(`Error Loading the page ${pageName}`, err);
-        }
+        await pages[pageName]();
     }else{
         console.warn(`Page ${pageName} does not have a script`);
     }
 }
 
-loadPageContent();
+
 
 // Navegação e carregamento da página
 document.querySelectorAll('.nav-item').forEach(item => {
@@ -95,11 +111,14 @@ document.querySelectorAll('.nav-item').forEach(item => {
             navItem.classList.remove('active');
         });
         this.classList.add('active');
-        loadPageContent();
+
+        setTimeout(() => {
+            loadPageContent();
+        }, 100);
     });
 });
 
 
 
-
-
+window.addEventListener('hashchange', loadPageContent);
+window.addEventListener('DOMContentLoaded', loadPageContent);

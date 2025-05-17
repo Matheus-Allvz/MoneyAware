@@ -1,3 +1,4 @@
+
 export function init(){
     /*****************************************/
     //
@@ -15,10 +16,11 @@ export function init(){
     // Abrir modal
     addAccountBtn.addEventListener('click', () => {
         addAccountModal.style.display = 'flex';
-        document.getElementById('newAccountName').focus();
+        // document.getElementById('newAccountName').focus();
     });
 
-    // Fechar modal
+
+    // Funções que fecham o modal
     function closeModal() {
         addAccountModal.style.display = 'none';
         addAccountForm.reset();
@@ -28,12 +30,12 @@ export function init(){
     closeAddAccountModal.addEventListener('click', closeModal);
     cancelAddAccount.addEventListener('click', closeModal);
 
-    // Fechar ao clicar fora do modal
     window.addEventListener('click', (e) => {
         if (e.target === addAccountModal) {
             closeModal();
         }
     });
+
 
     // Limpar mensagens de erro
     function clearErrors() {
@@ -75,9 +77,7 @@ export function init(){
                 name: name,
                 balance: parseFloat(balance),
                 currency: document.getElementById('newAccountCurrency').value,
-                type: document.getElementById('newAccountType').value,
                 color: document.querySelector('input[name="accountColor"]:checked').value,
-                description: document.getElementById('newAccountDescription').value.trim(),
                 createdAt: new Date(),
                 transactions: []
             };
@@ -88,15 +88,7 @@ export function init(){
             
             // Fechar modal e recarregar a lista
             closeModal();
-            alert('Conta criada com sucesso!');
-            // Exemplo: refreshAccountsList();
-        }
-    });
-
-    // Máscara para o campo de saldo
-    document.getElementById('newAccountBalance').addEventListener('blur', function() {
-        if (this.value) {
-            this.value = parseFloat(this.value).toFixed(2);
+            location.reload();
         }
     });
 }
