@@ -378,6 +378,7 @@ body {
     margin-left: 220px;
     padding: 30px;
     flex-grow: 1;
+    overflow: hidden;
 }
 
 .page-title {
@@ -396,10 +397,11 @@ body {
 /* ============================================= */
 /* 5. VISÃO GERAL */
 /* ============================================= */
+
 .accounts-container {
     display: flex;
     gap: 15px;
-    padding-bottom: 10px;
+    overflow: auto;
 }
 
 .account-card {
