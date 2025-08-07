@@ -1,5 +1,6 @@
 
-export function init(){
+export async function init(){
+    const accFunctions = await import('./accountsFunctions.js');
     /*****************************************/
     //
     // Modal de adicionar conta
@@ -50,6 +51,8 @@ export function init(){
 
         const name = document.getElementById('newAccountName').value.trim();
         const balance = document.getElementById('newAccountBalance').value;
+        const currency = document.getElementById('newAccountCurrency').value;
+        const color = document.querySelector('input[name="accountColor"]:checked').value;
         let isValid = true;
 
         // Validação do nome
@@ -70,25 +73,14 @@ export function init(){
             isValid = false;
         }
 
-        if (isValid) {
-            // Criar nova conta
-            const newAccount = {
-                id: Date.now(),
-                name: name,
-                balance: parseFloat(balance),
-                currency: document.getElementById('newAccountCurrency').value,
-                color: document.querySelector('input[name="accountColor"]:checked').value,
-                createdAt: new Date(),
-                transactions: []
-            };
 
-            // Aqui você adicionaria a conta ao sistema
-            console.log('Nova conta criada:', newAccount);
-            // Exemplo: addAccountToSystem(newAccount);
+        if (isValid) {
             
-            // Fechar modal e recarregar a lista
             closeModal();
+            
+            accFunctions.createAccount(name, parseFloat(balance), currency, color);
             location.reload();
+            
         }
     });
 }

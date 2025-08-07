@@ -18,7 +18,6 @@ export function init(){
     const transactionValueAddTransaction = document.getElementById('transactionValue');
     const exchangeRateAddTransaction = document.getElementById('exchangeRate');
     const convertedValueAddTransaction = document.getElementById('convertedValue');
-    const hiddenModalElementsAddTransaction = document.getElementsByClassName('initially-hidden');
 
     /*
         Fecha o modal, apaga os dados deixados no formulário e esconde os campos relacionados a transferência e conversão de moeda.
