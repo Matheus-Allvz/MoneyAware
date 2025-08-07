@@ -23,15 +23,6 @@ export default
                 </select>
             </div>
             
-            <div class="form-group">
-                <label class="form-label" for="userLanguage">Idioma</label>
-                <select class="form-control" id="userLanguage">
-                    <option value="pt-BR" selected>Português (Brasil)</option>
-                    <option value="en-US">Inglês (EUA)</option>
-                    <option value="es-ES">Espanhol</option>
-                </select>
-            </div>
-            
             <div class="form-footer">
                 <button class="btn btn-primary">Salvar Alterações</button>
             </div>

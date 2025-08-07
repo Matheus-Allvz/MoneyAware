@@ -23,6 +23,8 @@ export default
                     <div class="account-card-balance">R$ 25.000,00</div>
                     <div class="account-card-transactions">3 transações</div>
                 </div>
+
+
                 <div class="add-account-card" id="addAccountBtn">
                     + Adicionar Conta
                 </div>
